@@ -17,8 +17,7 @@ babee
 #### read the subject with a diffirent way:
 
   
-
-<iframe  src="https://miro.com/app/live-embed/uXjVNAvSGoQ=/?moveToViewport=-766,-1874,8148,4624&embedId=302212724185"  scrolling="no"  allow="fullscreen; clipboard-read; clipboard-write"  allowfullscreen  width="768"  height="432"  frameborder="0"></iframe>
+https://miro.com/welcomeonboard/TlY5TUNVWXN5SXliWDB6YUxnMDNrak9WT3VIYUpieFU1RzNuVXd3THNjVFgxWk1ZUVkwRjNwdW1wcjJwSlZtWXwzNDU4NzY0NTI4ODkxMzIzMjQxfDI=?share_link_id=199072362456
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzgwMDAxNzIzXX0=
+eyJoaXN0b3J5IjpbLTY0NDc1NzQyNl19
 -->
