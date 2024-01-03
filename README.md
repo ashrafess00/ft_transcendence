@@ -1,5 +1,7 @@
 # ft_transcendence - Pong Tournament Website
 
+![alt text](front-end/assets/pong.png "Title")
+
 Welcome to the ft_transcendence Surprise project repository! This project aims to create an interactive and engaging Pong tournament website adhering to specific technical requirements, security considerations, and modular development.
 
 ## Table of Contents
