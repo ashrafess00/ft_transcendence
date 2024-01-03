@@ -1,70 +1,136 @@
-# Getting Started with Create React App
+# ft_transcendence - Pong Tournament Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the ft_transcendence Surprise project repository! This project aims to create an interactive and engaging Pong tournament website adhering to specific technical requirements, security considerations, and modular development.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Overview](#overview)
+- [Minimal Technical Requirements](#minimal-technical-requirements)
+- [Modules](#modules)
+  - [Web](#web)
+  - [User Management](#user-management)
+  - [Gameplay and User Experience](#gameplay-and-user-experience)
+  - [AI-Algo](#ai-algo)
+  - [Cybersecurity](#cybersecurity)
+  - [Devops](#devops)
+  - [Graphics](#graphics)
+  - [Accessibility](#accessibility)
+  - [Server-Side Pong](#server-side-pong)
+- [Security Concerns](#security-concerns)
+- [Roadmap](#roadmap)
 
-### `npm start`
+## Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This project focuses on creating a Pong tournament website with the following major modules:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Web:** Utilizing a backend framework, frontend framework, and optional database.
+- **User Management:** Standard user management, remote authentication, and users across tournaments.
+- **Gameplay and User Experience:** Supporting remote players, multiplayer functionality, live chat, and AI opponents.
+- **AI-Algo:** Implementing AI opponents and user/game stats dashboards.
+- **Cybersecurity:** Integrating WAF/ModSecurity, GDPR compliance, Two-Factor Authentication (2FA), and JWT.
+- **Devops:** Setting up infrastructure for log management, monitoring system, and designing the backend as microservices.
+- **Graphics:** Utilizing advanced 3D techniques for enhanced visual aesthetics.
+- **Accessibility:** Supporting all devices, expanding browser compatibility, multiple language support, accessibility for visually impaired users, and Server-Side Rendering (SSR) integration.
+- **Server-Side Pong:** Replacing basic Pong with server-side Pong and implementing an API for gameplay via CLI against web users.
 
-### `npm test`
+## Minimal Technical Requirements
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To comply with project constraints, the website must be a single-page application, developed with or without a backend. The frontend should use pure vanilla Javascript. If a backend is included, it must be written in pure Ruby, and Docker must be used for containerization.
 
-### `npm run build`
+## Modules
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Web
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Major Module:** Use a Framework as a backend.
+- **Minor Module:** Use a front-end framework or toolkit.
+- **Minor Module:** Use a database for the backend.
+- **Major Module:** Store the score of a tournament in the Blockchain.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### User Management
 
-### `npm run eject`
+- **Major Module:** Standard user management, authentication, users across tournaments.
+- **Major Module:** Implementing remote authentication.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Gameplay and User Experience
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **Major Module:** Remote players.
+- **Major Module:** Multiplayers (more than 2 in the same game).
+- **Major Module:** Add Another Game with User History and Matchmaking.
+- **Minor Module:** Game Customization Options.
+- **Major Module:** Live chat.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### AI-Algo
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **Major Module:** Introduce an AI Opponent.
+- **Minor Module:** User and Game Stats Dashboards.
 
-## Learn More
+### Cybersecurity
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **Major Module:** Implement WAF/ModSecurity with Hardened Configuration and HashiCorp Vault for Secrets Management.
+- **Minor Module:** GDPR Compliance Options with User Anonymization, Local Data Management, and Account Deletion.
+- **Major Module:** Implement Two-Factor Authentication (2FA) and JWT.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Devops
 
-### Code Splitting
+- **Major Module:** Infrastructure Setup for Log Management.
+- **Minor Module:** Monitoring system.
+- **Major Module:** Designing the Backend as Microservices.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Graphics
 
-### Analyzing the Bundle Size
+- **Major Module:** Use of advanced 3D techniques.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Accessibility
 
-### Making a Progressive Web App
+- **Minor Module:** Support on all devices.
+- **Minor Module:** Expanding Browser Compatibility.
+- **Minor Module:** Multiple language supports.
+- **Minor Module:** Add accessibility for Visually Impaired Users.
+- **Minor Module:** Server-Side Rendering (SSR) Integration.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Server-Side Pong
 
-### Advanced Configuration
+- **Major Module:** Replacing Basic Pong with Server-Side Pong and Implementing an API.
+- **Major Module:** Enabling Pong Gameplay via CLI against Web Users with API Integration.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Security Concerns
 
-### Deployment
+To ensure a basic functional website, address the following security concerns:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- Hash passwords in the database.
+- Protect against SQL injections/XSS.
+- Enable HTTPS connection for all aspects.
+- Implement form and user input validation.
 
-### `npm run build` fails to minify
+## Roadmap
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The project will progress through the following phases:
+
+1. **Setup and Backend Development**
+   - Choose and set up a backend framework.
+   - Implement basic user management.
+
+2. **Frontend Development**
+   - Develop a single-page application using pure vanilla Javascript.
+   - Explore options for frontend frameworks or toolkits.
+
+3. **Gameplay Features**
+   - Implement basic Pong gameplay.
+   - Add remote player functionality.
+   - Introduce multiplayer and tournament features.
+
+4. **Security and DevOps**
+   - Implement security measures.
+   - Set up infrastructure for log management and monitoring.
+   - Design the backend as microservices.
+
+5. **Advanced Features**
+   - Integrate AI opponents.
+   - Implement advanced graphics techniques.
+   - Enhance user experience with live chat and customization options.
+
+6. **Accessibility and Finalization**
+   - Ensure compatibility with various devices and browsers.
+   - Implement multiple language support.
+   - Add accessibility features for visually impaired users.
+   - Finalize SSR integration and other minor modules.
