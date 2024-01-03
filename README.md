@@ -39,19 +39,19 @@ To comply with project constraints, the website must be a single-page applicatio
 
 ## Modules
 
-### Web
+### 🌐 Web
 
 - **Major Module:** Use a Framework as a backend.
 - **Minor Module:** Use a front-end framework or toolkit.
 - **Minor Module:** Use a database for the backend.
 - **Major Module:** Store the score of a tournament in the Blockchain.
 
-### User Management
+### 👥 User Management
 
 - **Major Module:** Standard user management, authentication, users across tournaments.
 - **Major Module:** Implementing remote authentication.
 
-### Gameplay and User Experience
+### 🎮 Gameplay and User Experience
 
 - **Major Module:** Remote players.
 - **Major Module:** Multiplayers (more than 2 in the same game).
@@ -59,28 +59,28 @@ To comply with project constraints, the website must be a single-page applicatio
 - **Minor Module:** Game Customization Options.
 - **Major Module:** Live chat.
 
-### AI-Algo
+### 🧠 AI-Algo
 
 - **Major Module:** Introduce an AI Opponent.
 - **Minor Module:** User and Game Stats Dashboards.
 
-### Cybersecurity
+### 🛡️ Cybersecurity
 
 - **Major Module:** Implement WAF/ModSecurity with Hardened Configuration and HashiCorp Vault for Secrets Management.
 - **Minor Module:** GDPR Compliance Options with User Anonymization, Local Data Management, and Account Deletion.
 - **Major Module:** Implement Two-Factor Authentication (2FA) and JWT.
 
-### Devops
+### 🛠️ Devops
 
 - **Major Module:** Infrastructure Setup for Log Management.
 - **Minor Module:** Monitoring system.
 - **Major Module:** Designing the Backend as Microservices.
 
-### Graphics
+### 🎨 Graphics
 
 - **Major Module:** Use of advanced 3D techniques.
 
-### Accessibility
+### 🌐 Accessibility
 
 - **Minor Module:** Support on all devices.
 - **Minor Module:** Expanding Browser Compatibility.
@@ -88,7 +88,7 @@ To comply with project constraints, the website must be a single-page applicatio
 - **Minor Module:** Add accessibility for Visually Impaired Users.
 - **Minor Module:** Server-Side Rendering (SSR) Integration.
 
-### Server-Side Pong
+### 🏓 Server-Side Pong
 
 - **Major Module:** Replacing Basic Pong with Server-Side Pong and Implementing an API.
 - **Major Module:** Enabling Pong Gameplay via CLI against Web Users with API Integration.
