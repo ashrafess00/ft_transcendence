@@ -1,7 +1,4 @@
 from django.db import models
-from pygments.lexers import get_lexer_by_name
-from pygments.formatters.html import HtmlFormatter
-from pygments import highlight
 # Create your models here.
 
 LANGUAGES = [
@@ -15,7 +12,7 @@ class Snippet(models.Model):
     title = models.CharField(max_length=100, blank=True, default='')
     code = models.TextField()
     language = models.CharField(max_length=100, choices=LANGUAGES, default='English')
-    owner = models.ForeignKey('auth.User', related_name='snippets', on_delete=models.CASCADE)
+    owner = models.ForeignKey('auth.User', related_name='snippets', on_delete=models.CASCADE, null=True)
 
 
     def __str__(self):
