@@ -1,19 +1,20 @@
+import Login from "./views/Login.js"
 import Dashboard from "./views/Dashboard.js";
-import About from "./views/About.js"
 
-const pathToRegex = path => new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
+
+// // const pathToRegex = path => new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
 
 const navigateTo = url => {
+    console.log("url: ", url);
     history.pushState(null, null, url);
     router();
 }
 
 const router = async() => {
+    console.log("inside router")
     const routes = [
         {path:"/", view: Dashboard},
-        {path:"/about", view: About},
-        // {path:"/sec", view: () => console.log("sec v")},
-
+        {path:"/login", view: Login},
     ]
     const potentialMatches = routes.map(route => {
         return {
@@ -23,6 +24,7 @@ const router = async() => {
     })
 
     let match = potentialMatches.find(potentialMatch => potentialMatch.isMatch)
+    console.log("match: ", match);
     if (!match) {
         match = {
             route: routes[0],
@@ -37,11 +39,17 @@ const router = async() => {
 window.addEventListener("popstate", router);
 
 document.addEventListener("DOMContentLoaded", () => {
-    document.body.addEventListener("click", e => {
-        if (e.target.matches("[data-link]")) {
-            e.preventDefault();
-            navigateTo(e.target.href);
-        }
+    // document.body.addEventListener("click", e => {
+    //     if (e.target.matches("[data-link]")) {
+    //         e.preventDefault();
+    //         navigateTo(e.target.href);
+    //     }
+    // })
+    console.log("hi")
+    let loginBtn = document.getElementById("login-btn");
+    loginBtn.addEventListener("click", e => {
+        e.preventDefault();
+        navigateTo(e.target.href);
     })
-    router();
+    // router();
 })
