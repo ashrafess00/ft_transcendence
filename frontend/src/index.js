@@ -1,21 +1,22 @@
-import Login from "./views/Login.js"
-import Dashboard from "./views/Dashboard.js";
+import Login from "./Components/Login.js"
+import Home from "./Components/Home.js"
 
+// // // const pathToRegex = path => new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
 
-// // const pathToRegex = path => new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
-
-const navigateTo = url => {
-    console.log("url: ", url);
-    history.pushState(null, null, url);
-    router();
-}
 
 const router = async() => {
     console.log("inside router")
     const routes = [
-        {path:"/", view: Dashboard},
-        {path:"/login", view: Login},
+        {
+            path:"/",
+            component: Home
+        },
+        {
+            path:"/login",
+            component: Login
+        },
     ]
+    
     const potentialMatches = routes.map(route => {
         return {
             route,
@@ -23,33 +24,48 @@ const router = async() => {
         }
     })
 
+    console.log(potentialMatches);
     let match = potentialMatches.find(potentialMatch => potentialMatch.isMatch)
-    console.log("match: ", match);
+    console.log(match);
     if (!match) {
         match = {
             route: routes[0],
             isMatch: true
         }
     }
-
-    const view = new match.route.view();
-    document.querySelector("#app").innerHTML = await view.getHtml();
+    // let el = document.createElement("login-component");
+    
+    const view = new match.route.component("hi");
+    // document.querySelector("#app").innerHTML = await view.getHtml();
 }
 
 window.addEventListener("popstate", router);
 
+const navigateTo = url => {
+    console.log("url: ", url);
+    history.pushState(null, null, url);
+    router();
+}
+
+function generateFavIcon() {
+    let links = ["assets/aessaoud.ico",
+                 "assets/kslik.ico",
+                 "assets/hdagdagu.ico",
+                 "assets/ylabrahm.ico",
+                 "assets/yhachami.ico",
+                ]
+    let link = document.querySelector("link[rel~='icon']");
+    let rand = Math.floor(Math.random() * 5);
+    link.href = links[rand];
+}
+generateFavIcon();
+
 document.addEventListener("DOMContentLoaded", () => {
-    // document.body.addEventListener("click", e => {
-    //     if (e.target.matches("[data-link]")) {
-    //         e.preventDefault();
-    //         navigateTo(e.target.href);
-    //     }
-    // })
-    console.log("hi")
     let loginBtn = document.getElementById("login-btn");
     loginBtn.addEventListener("click", e => {
         e.preventDefault();
         navigateTo(e.target.href);
     })
-    // router();
+    router();
+    
 })

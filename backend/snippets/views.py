@@ -6,9 +6,19 @@ from snippets.serializers import SnippetSerializer, UserSerializer
 from snippets.models import Snippet
 from rest_framework.parsers import JSONParser
 from rest_framework.response import Response
-from rest_framework import status, mixins, generics
+from rest_framework import status, mixins, generics, permissions
 from rest_framework.views import APIView
 from django.contrib.auth.models import User
+from snippets.permissions import IsOwnerOrReadOnly
+from rest_framework_simplejwt.authentication import JWTAuthentication
+from rest_framework.permissions import IsAuthenticated
+
+class RestictedView(APIView):
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        return Response(data={"message": "you have acess to this restricted content"})
 # Create your views here.
 
 
@@ -30,6 +40,7 @@ class SnippetList(mixins.ListModelMixin, mixins.CreateModelMixin, generics.Gener
     queryset = Snippet.objects.all()
     serializer_class = SnippetSerializer
 
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     def get(self, request, *args, **kwargs):
         return self.list(request, *args, **kwargs)
     
@@ -48,6 +59,7 @@ class SnippetDetail(APIView):
         except Snippet.DoesNotExist:
             raise Http404
         
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
     def get(self, request, pk, format=None):
         snippet = self.get_object(pk)
         serializer = SnippetSerializer(snippet)
@@ -124,3 +136,7 @@ class UserDetail(generics.RetrieveAPIView):
 #     elif request.method == 'DELETE':
 #         snippet.delete()
 #         return Response(status=204)
+
+
+
+
