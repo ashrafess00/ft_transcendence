@@ -5,22 +5,26 @@ export default class Login extends HTMLElement {
         console.log("hai: ", attr);
         super();
         this.attribute = attr;
-        this.render();
+        this.connectedCallback();
     }
 
     connectedCallback() {
-        this.render();
-    }
-    async render() {
         const shadow = this.attachShadow({mode: "open"});
         const app = document.getElementById("app");
-        const wrapper = document.createElement("div");
-        const title = document.createElement("h1");
-        title.innerHTML = "hello a bb Login " + (this.attribute ? this.attribute : "");
-        wrapper.appendChild(title);
-        shadow.appendChild(wrapper);
+
+        const container = document.createElement("div");
+        container.setAttribute("class", "container text-center align-middle position-absolute top-50 start-50 translate-middle");
+
+        container.innerHTML = 
+        `
+        <p clas="lead">Here user will be authenticated o dakshi</p>
+        <a href="/" data-link>back to Home</a>
+        `;
+
+        shadow.appendChild(container);
         app.innerHTML = "";
         app.appendChild(shadow);
+        console.log("home called");
     }
 }
 

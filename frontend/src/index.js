@@ -35,7 +35,7 @@ const router = async() => {
     }
     // let el = document.createElement("login-component");
     
-    const view = new match.route.component("hi");
+    const view = new match.route.component("Attr");
     // document.querySelector("#app").innerHTML = await view.getHtml();
 }
 
@@ -61,11 +61,11 @@ function generateFavIcon() {
 generateFavIcon();
 
 document.addEventListener("DOMContentLoaded", () => {
-    let loginBtn = document.getElementById("login-btn");
-    loginBtn.addEventListener("click", e => {
-        e.preventDefault();
-        navigateTo(e.target.href);
+    document.body.addEventListener("click", e => {
+        if (e.target.matches("[data-link]")) {
+            e.preventDefault();
+            navigateTo(e.target.href);
+        }
     })
     router();
-    
 })

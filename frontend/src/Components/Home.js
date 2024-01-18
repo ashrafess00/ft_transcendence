@@ -1,18 +1,15 @@
 export default class Home extends HTMLElement {
     constructor() {
         super();
-        this.render();
+        // this.connectedCallback();
+        this.connectedCallback();
     }
     connectedCallback() {
-        this.render();
-    }
-    render() {
-        // app.innerHTML = "";
         const shadow = this.attachShadow({mode: "open"});
         const app = document.getElementById("app");
 
         const container = document.createElement("div");
-        container.setAttribute("class", "container text-center align-middle");
+        container.setAttribute("class", "container text-center align-middle mt-auto position-absolute top-50 start-50 translate-middle");
 
         container.innerHTML = 
         `
