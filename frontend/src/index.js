@@ -5,7 +5,9 @@ import Home from "./Components/Home.js"
 
 
 const router = async() => {
-    console.log("inside router")
+    
+    
+    // console.log("inside router")
     const routes = [
         {
             path:"/",
@@ -24,9 +26,9 @@ const router = async() => {
         }
     })
 
-    console.log(potentialMatches);
+    // console.log(potentialMatches);
     let match = potentialMatches.find(potentialMatch => potentialMatch.isMatch)
-    console.log(match);
+    // console.log(match);
     if (!match) {
         match = {
             route: routes[0],
@@ -35,14 +37,14 @@ const router = async() => {
     }
     // let el = document.createElement("login-component");
     
-    const view = new match.route.component("hi");
-    // document.querySelector("#app").innerHTML = await view.getHtml();
+    const component = new match.route.component();
+    document.querySelector("#app").innerHTML = await component.getHtml();
 }
 
 window.addEventListener("popstate", router);
 
 const navigateTo = url => {
-    console.log("url: ", url);
+    // console.log("url: ", url);
     history.pushState(null, null, url);
     router();
 }
@@ -61,11 +63,12 @@ function generateFavIcon() {
 generateFavIcon();
 
 document.addEventListener("DOMContentLoaded", () => {
-    let loginBtn = document.getElementById("login-btn");
-    loginBtn.addEventListener("click", e => {
-        e.preventDefault();
-        navigateTo(e.target.href);
+    document.body.addEventListener("click", e => {
+        if (e.target.matches("[data-link]")) {
+            e.preventDefault();
+            navigateTo(e.target.href);
+        }
     })
     router();
-    
+    console.log("hidd");
 })

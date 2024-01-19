@@ -1,32 +1,13 @@
-export default class Home extends HTMLElement {
+export default class Home {
     constructor() {
-        super();
-        this.render();
-    }
-    connectedCallback() {
-        this.render();
-    }
-    render() {
-        // app.innerHTML = "";
-        const shadow = this.attachShadow({mode: "open"});
-        const app = document.getElementById("app");
 
-        const container = document.createElement("div");
-        container.setAttribute("class", "container text-center align-middle");
-
-        container.innerHTML = 
-        `
+    }
+    async getHtml() {
+        return `
+        <div class="container text-center align-middle mt-auto position-absolute top-50 start-50 translate-middle">
         <h1 class="display-1 text mb-5">Welcome To PingPong</h1>
-         <button class="btn btn-success" data-link>
-            <a href="/login" id="login-btn" class="text text-white text-decoration-none" data-link>Log In with 42</a>
-        </button>
-        `;
-
-        shadow.appendChild(container);
-        app.innerHTML = "";
-        app.appendChild(shadow);
-        console.log("home called");
+        <a href="/login" id="login-btn" class="btn btn-success" data-link>Log In with 42</a>
+        </div>
+        `
     }
 }
-
-customElements.define('home-component', Home);
