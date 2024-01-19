@@ -5,7 +5,9 @@ import Home from "./Components/Home.js"
 
 
 const router = async() => {
-    console.log("inside router")
+    
+    
+    // console.log("inside router")
     const routes = [
         {
             path:"/",
@@ -24,9 +26,9 @@ const router = async() => {
         }
     })
 
-    console.log(potentialMatches);
+    // console.log(potentialMatches);
     let match = potentialMatches.find(potentialMatch => potentialMatch.isMatch)
-    console.log(match);
+    // console.log(match);
     if (!match) {
         match = {
             route: routes[0],
@@ -35,14 +37,14 @@ const router = async() => {
     }
     // let el = document.createElement("login-component");
     
-    const view = new match.route.component("Attr");
-    // document.querySelector("#app").innerHTML = await view.getHtml();
+    const component = new match.route.component();
+    document.querySelector("#app").innerHTML = await component.getHtml();
 }
 
 window.addEventListener("popstate", router);
 
 const navigateTo = url => {
-    console.log("url: ", url);
+    // console.log("url: ", url);
     history.pushState(null, null, url);
     router();
 }
@@ -68,4 +70,5 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     })
     router();
+    console.log("hidd");
 })
