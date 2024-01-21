@@ -11,7 +11,7 @@ export default class Register {
         <div class="container position-absolute top-50 start-50 translate-middle">
             <div class="row">
                 <div class="col-lg-6 align-self-center mb-5">
-                    <h1>Baby Register here</h1>
+                    <h1>Register here a bb</h1>
                 </div>
                 <div class="col-lg-6 d-flex">
                     <div class="vr d-none d-lg-block"></div>
@@ -31,8 +31,13 @@ export default class Register {
                         <input type="password" class="form-control" id="userPass">
                         <div id="userPassHelp" class="form-text">don't share your password</div>
                     </div>
+                    <div class="mb-3"> 
+                        <label for="userPass" class="form-label">3awd lPassword</label>
+                        <input type="password" class="form-control" id="userPass">
+                        <div id="userPassHelp" class="form-text">don't share your password</div>
+                    </div>
                     
-                    <button type="submit" class="btn btn-primary text-white">Submit</button>
+                    <button type="submit" class="btn btn-primary text-white">Login</button>
                     </form>
                 </div>
             </div>

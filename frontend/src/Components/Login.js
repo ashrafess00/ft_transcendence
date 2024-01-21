@@ -11,7 +11,7 @@ export default class Login {
         <div class="container position-absolute top-50 start-50 translate-middle">
             <div class="row">
                 <div class="col-lg-6 align-self-center mb-5">
-                    <h1>Baby Login here</h1>
+                    <h1>Login here a bb</h1>
                 </div>
                 <div class="col-lg-6 d-flex">
                     <div class="vr d-none d-lg-block"></div>
@@ -34,7 +34,10 @@ export default class Login {
                             <div class="col-2 text-center">Or</div>
                             <div class="col-5"><hr></div>
                         </div>
-                        <div class="bg-primary text-white p-2 rounded-3 text-center">Login with 42</div>
+                        <div class="btn-group bg-primary text-white p-2 rounded-3 text-center mb-3 w-100 justify-content-center">
+                            <a class="text-white text-decoration-none text-center" href="#">Login with   <img src="../assets/ylabrahm.ico" style="width:30px;"></a>
+                        </div>
+                        <p>don't have an account? <a href="/register" data-link>register here</a></p>
                     </div>
                 </div>
             </div>
