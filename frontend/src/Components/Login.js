@@ -26,7 +26,10 @@ export default class Login {
         </div>
         <button type="submit" class="btn btn-success">Submit</button>
         </form>
-        <p class="lead mt-3">don't have an account? <a href="#">Register Here</a></p>
+        <p class="my-4">don't have an account? <a href="/register" data-link>Register Here</a></p>
+        <p>Or</p>
+        <a class="text-decoration-disable" href="#">
+        <div class="bg-success rounded-5 p-1">Login with 42</div></a>
         </div>
     `
 }

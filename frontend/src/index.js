@@ -1,13 +1,12 @@
 import Login from "./Components/Login.js"
 import Home from "./Components/Home.js"
+import Register from "./Components/Register.js"
 
 // // // const pathToRegex = path => new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
 
 
 const router = async() => {
     
-    
-    // console.log("inside router")
     const routes = [
         {
             path:"/",
@@ -16,6 +15,10 @@ const router = async() => {
         {
             path:"/login",
             component: Login
+        },
+        {
+            path:"/register",
+            component: Register
         },
     ]
     
@@ -39,6 +42,14 @@ const router = async() => {
     
     const component = new match.route.component();
     document.querySelector("#app").innerHTML = await component.getHtml();
+
+    let l = document.getElementById("userName");
+    console.log(l)
+    if (l) {
+        l.addEventListener('input', e => {
+            console.log("hi there");
+        })
+    }
 }
 
 window.addEventListener("popstate", router);
@@ -59,6 +70,8 @@ function generateFavIcon() {
     let link = document.querySelector("link[rel~='icon']");
     let rand = Math.floor(Math.random() * 5);
     link.href = links[rand];
+
+    
 }
 generateFavIcon();
 
@@ -69,6 +82,15 @@ document.addEventListener("DOMContentLoaded", () => {
             navigateTo(e.target.href);
         }
     })
+
+    let l = document.getElementById("userName");
+    console.log(l)
+    if (l) {
+        l.addEventListener('input', e => {
+            console.log("hi there");
+        })
+    }
+    
     router();
     console.log("hidd");
 })
