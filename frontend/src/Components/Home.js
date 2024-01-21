@@ -12,7 +12,7 @@ export default class Home {
         return `
         <div class="container text-center align-middle mt-auto position-absolute top-50 start-50 translate-middle">
             <h1 class="display-1 text mb-5">Welcome To PingPong</h1>
-            <a href="/login" id="login-btn" class="btn btn-primary px-3" data-link>Log In</a>
+            <a href="/login" id="login-btn" class="btn btn-primary px-3 text-decoration-none text-white" data-link>Log In</a>
         </div>
     `;
     }
