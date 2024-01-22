@@ -36,7 +36,6 @@ export default class Register {
                         <input type="password" class="form-control" id="userPass">
                         <div id="userPassHelp" class="form-text">don't share your password</div>
                     </div>
-                    
                     <button type="submit" class="btn btn-primary text-white">Login</button>
                     </form>
                 </div>
