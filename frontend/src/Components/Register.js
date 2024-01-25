@@ -4,9 +4,10 @@ export default class Register {
     constructor() {
     }
 
-    async getHtml() {
+    async render() {
         let backToHomeCom = new BackToHome()
-        return `
+
+        const html = `
         ${backToHomeCom.getHtml()}
         <div class="container position-absolute top-50 start-50 translate-middle">
             <div class="row">
@@ -42,5 +43,6 @@ export default class Register {
             </div>
         </div>
         `
+        document.querySelector("#app").innerHTML = html;
 }
 }
