@@ -17,6 +17,8 @@ class DataList(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
+
+
     
 class DataDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = PlayerData.objects.all()

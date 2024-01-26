@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from register.views import register
 
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
@@ -34,4 +35,5 @@ urlpatterns = [
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('api/token/verify/', TokenVerifyView.as_view(), name='toekn-verify'),
     path('api-auth/', include('rest_framework.urls')),
+    path('register/', register, name='register')
 ]
