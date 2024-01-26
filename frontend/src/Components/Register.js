@@ -4,9 +4,10 @@ export default class Register {
     constructor() {
     }
 
-    async getHtml() {
+    async render() {
         let backToHomeCom = new BackToHome()
-        return `
+
+        const html = `
         ${backToHomeCom.getHtml()}
         <div class="container position-absolute top-50 start-50 translate-middle">
             <div class="row">
@@ -36,12 +37,12 @@ export default class Register {
                         <input type="password" class="form-control" id="userPass">
                         <div id="userPassHelp" class="form-text">don't share your password</div>
                     </div>
-                    
                     <button type="submit" class="btn btn-primary text-white">Login</button>
                     </form>
                 </div>
             </div>
         </div>
         `
+        document.querySelector("#app").innerHTML = html;
 }
 }

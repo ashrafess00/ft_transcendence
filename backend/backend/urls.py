@@ -30,10 +30,7 @@ from rest_framework_simplejwt.views import TokenObtainPairView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('playerauth.urls')),
-    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    path('api/token/verify/', TokenVerifyView.as_view(), name='toekn-verify'),
+    path('api/', include('playerauth.urls')),
     path('api-auth/', include('rest_framework.urls')),
     path('register/', register, name='register')
 ]

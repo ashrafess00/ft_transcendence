@@ -13,17 +13,16 @@ from rest_framework.reverse import reverse
 class DataList(generics.ListCreateAPIView):
     queryset = PlayerData.objects.all()
     serializer_class = PlayerDataSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [permissions.IsAuthenticated]
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
-
 
     
 class DataDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = PlayerData.objects.all()
     serializer_class = PlayerDataSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [permissions.IsAuthenticated]
 
 
 class UserList(generics.ListAPIView):
@@ -33,3 +32,9 @@ class UserList(generics.ListAPIView):
 class UserDetail(generics.RetrieveAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+
+
+class CurrentUserView(APIView):
+    def get(self, request):
+        serializer = UserSerializer(request.user)
+        return Response(serializer.data)
