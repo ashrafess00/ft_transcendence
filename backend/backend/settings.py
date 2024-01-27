@@ -28,9 +28,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+APPEND_SLASH = False
 
 # Application definition
-
 INSTALLED_APPS = [
 
     #my app
@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'snippets',
     'corsheaders',
     'rest_framework_simplejwt',
-    'register',
 
 
 
@@ -93,9 +92,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'railway',        
         'USER':'postgres',
-        'PASSWORD':'bFaFAcD*dDbg6DG*-Fe-6b2f16ACBEF5',
+        'PASSWORD':'1FFFad*-d-eFC1eef3CB6Ff-dE3fADaf',
         'HOST':'monorail.proxy.rlwy.net',
-        'PORT':'59809',
+        'PORT':'42279',
     }
 }
 

@@ -13,3 +13,10 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['id', 'username', 'playerdata']
+
+
+class UserRegistrationSerializer(serializers.Serializer):
+    username = serializers.CharField(max_length=100)
+    Email = serializers.EmailField()
+    Password = serializers.CharField(write_only=True)
+    Confirm_Password = serializers.CharField(write_only=True)
