@@ -47,21 +47,28 @@ class CurrentUserView(APIView):
 class UserRegistrationViewSet(viewsets.ViewSet):
     def create(self, request):
         serializer = UserRegistrationSerializer(data=request.data)
+
         if serializer.is_valid():
             username = serializer.validated_data['username']
-            email = serializer.validated_data['Email']
-            password = serializer.validated_data['Password']
-            confirm_password = serializer.validated_data['Confirm_Password']
-
+            email = serializer.validated_data['email']
+            password = serializer.validated_data['password']
+            confirm_password = serializer.validated_data['confirm_password']
+            # print(username)
+            # print(email)
+            # print(password)
+            # print(confirm_password)
             if password != confirm_password:
+                print("Passwords do not match")
                 return Response({"error": "Passwords do not match"}, status=status.HTTP_400_BAD_REQUEST)
             elif User.objects.filter(email=email).exists() or User.objects.filter(username=username).exists():
+                print("Email or Username already exists")
                 return Response({"error": "Email or Username already exists"}, status=status.HTTP_400_BAD_REQUEST)
             else:
                 user = User.objects.create_user(username=username, email=email, password=password)
                 user = authenticate(username=username, password=password)
                 login(request, user)
-
+                print("Successfully Registered")
                 return Response({"status": "Successfully Registered"}, status=status.HTTP_201_CREATED)
-
-        return Response({"error": "test"}, status=status.HTTP_400_BAD_REQUEST)
+        else:
+            print(serializer.errors)
+            return Response({"error": "test"}, status=status.HTTP_400_BAD_REQUEST)
