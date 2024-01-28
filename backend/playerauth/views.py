@@ -18,21 +18,20 @@ from rest_framework import status
 class DataList(generics.ListCreateAPIView):
     queryset = PlayerData.objects.all()
     serializer_class = PlayerDataSerializer
-    permission_classes = [permissions.IsAuthenticated]
 
-    def perform_create(self, serializer):
-        serializer.save(owner=self.request.user)
+
 
     
 class DataDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = PlayerData.objects.all()
     serializer_class = PlayerDataSerializer
-    permission_classes = [permissions.IsAuthenticated]
+
 
 
 class UserList(generics.ListAPIView):
     queryset = User.objects.all()
-    serializer_class = UserSerializer
+    print("---[", queryset, "]---")
+    # serializer_class = UserSerializer
 
 class UserDetail(generics.RetrieveAPIView):
     queryset = User.objects.all()
