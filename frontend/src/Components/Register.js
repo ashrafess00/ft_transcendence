@@ -60,32 +60,38 @@ export default class Register {
             this.email = document.getElementById("email").value;
             this.password = document.getElementById("password").value;
             this.confirm_password = document.getElementById("confirm_password").value;
-            
-            const response = await fetch(this.url, {
-                method: "POST",
-                headers:{
-                    "Content-Type":"application/json",
-                },
-                body:JSON.stringify({
-                    username: this.username,
-                    email: this.email,
-                    password: this.password,
-                    confirm_password: this.confirm_password,
-                }),
-            });
-            const data = await response.json();
-            if (!response.ok)
-            {
-                console.log(data.error)
-                this.message = data.error;
-            }
-            else
-            {
-                console.log(data.status)
-                this.message = data.status;
-            }
+            try{
 
-            messageContainer.innerHTML = `<p>${this.message}</p>`;
+                const response = await fetch(this.url, {
+                    method: "POST",
+                    headers:{
+                        "Content-Type":"application/json",
+                    },
+                    body:JSON.stringify({
+                        username: this.username,
+                        email: this.email,
+                        password: this.password,
+                        confirm_password: this.confirm_password,
+                    }),
+                });
+                const data = await response.json();
+                if (!response.ok)
+                {
+                    console.log(data.error)
+                    this.message = data.error;
+                }
+                else
+                {
+                    console.log(data.status)
+                    this.message = data.status;
+                }
+    
+                messageContainer.innerHTML = `<p>${this.message}</p>`;
+            }
+            catch(error)
+            {
+                console.log(error);
+            }
 
         });
 
