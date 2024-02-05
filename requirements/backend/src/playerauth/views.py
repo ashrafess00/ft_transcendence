@@ -46,7 +46,7 @@ class CurrentUserView(APIView):
 class UserRegistrationViewSet(viewsets.ViewSet):
     def create(self, request):
         serializer = UserRegistrationSerializer(data=request.data)
-
+        print("hello world")
         if serializer.is_valid():
             username = serializer.validated_data['username']
             email = serializer.validated_data['email']

@@ -1,11 +1,19 @@
-FROM python:3.8
+FROM python:3.8-buster
 
-RUN pip install --upgrade pip && pip install -r tools/requirements.txt
+ENV PYTHONUNBUFFERED 1
 
 WORKDIR /app
 
-COPY src/ /app
+RUN mkdir /envs
+
+COPY ./tools/requirements.txt /
+
+RUN python3 -m venv /envs && \
+    . /envs/bin/activate && \
+    pip install --upgrade pip && \
+    pip install -r /requirements.txt
 
 EXPOSE 8000
 
-CMD ["python", "manage.py", "runserver" , "0.0.0.0:8000"]
+CMD ["/envs/bin/python3", "/app/manage.py", "runserver", "0.0.0.0:8000"]
+
