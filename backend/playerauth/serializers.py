@@ -8,10 +8,8 @@ class PlayerDataSerializer(serializers.ModelSerializer):
         fields = ['id', 'firstName', 'lastName']
     
 class UserSerializer(serializers.ModelSerializer):
-    playerdata = serializers.PrimaryKeyRelatedField(many=True, queryset = PlayerData.objects.all())
-    class Meta:
         model = User
-        fields = ['id', 'username', 'playerdata']
+        fields = ['id', 'username', 'email']
 
 
 class UserRegistrationSerializer(serializers.Serializer):

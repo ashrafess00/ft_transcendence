@@ -28,20 +28,25 @@ class DataDetail(generics.RetrieveUpdateDestroyAPIView):
 
 
 
-class UserList(generics.ListAPIView):
-    queryset = User.objects.all()
-    print("---[", queryset, "]---")
-    # serializer_class = UserSerializer
+# class UserList(generics.ListAPIView):
+#     queryset = User.objects.all()
+#     print("---[", queryset, "]---")
+#     # serializer_class = UserSerializer
 
-class UserDetail(generics.RetrieveAPIView):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
+# class UserDetail(generics.RetrieveAPIView):
+#     queryset = User.objects.all()
+#     serializer_class = UserSerializer
+
+
 
 
 class CurrentUserView(APIView):
     def get(self, request):
         serializer = UserSerializer(request.user)
         return Response(serializer.data)
+    
+
+
 
 class UserRegistrationViewSet(viewsets.ViewSet):
     def create(self, request):
