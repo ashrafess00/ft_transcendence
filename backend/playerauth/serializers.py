@@ -5,11 +5,13 @@ from django.contrib.auth.models import User
 class PlayerDataSerializer(serializers.ModelSerializer):
     class Meta:
         model = PlayerData
-        fields = ['id', 'firstName', 'lastName']
+        fields = ['id', 'firstName', 'lastName',]
     
+
 class UserSerializer(serializers.ModelSerializer):
+    class Meta:
         model = User
-        fields = ['id', 'username', 'email']
+        fields = ['id', 'username', 'email',]
 
 
 class UserRegistrationSerializer(serializers.Serializer):

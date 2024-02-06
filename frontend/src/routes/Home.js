@@ -1,6 +1,6 @@
 export default class Home {
     constructor() {
-        
+        this.render();
     }
 
     async getData() {
@@ -15,6 +15,7 @@ export default class Home {
             <a href="/login" id="login-btn" class="btn btn-primary px-3 text-decoration-none text-white" data-link>Log In</a>
         </div>
     `;
+    
     document.querySelector("#app").innerHTML = html;
     }
 }

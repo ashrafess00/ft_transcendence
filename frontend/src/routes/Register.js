@@ -1,4 +1,4 @@
-import BackToHome from "./BackToHome.js";
+import BackToHome from "../Components/BackToHome.js";
 
 export default class Register {
     constructor() {
@@ -8,6 +8,7 @@ export default class Register {
         this.password = "";
         this.confirm_password = "";  
         this.message = "";
+        this.render();
     }
 
     async render() {
@@ -52,6 +53,7 @@ export default class Register {
         </div>
         `;
 
+        
         document.querySelector("#app").innerHTML = html;
         const form = document.getElementById("register");
         form.addEventListener("submit", async e => {

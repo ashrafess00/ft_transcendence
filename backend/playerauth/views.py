@@ -13,38 +13,41 @@ from .serializers import UserRegistrationSerializer
 from django.contrib.auth import authenticate, login
 from rest_framework import status
 # from .models import User
-
+from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
+from playerauth.serializers import UserSerializer
 
 class DataList(generics.ListCreateAPIView):
     queryset = PlayerData.objects.all()
     serializer_class = PlayerDataSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly]
 
 
 
-    
 class DataDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = PlayerData.objects.all()
     serializer_class = PlayerDataSerializer
 
 
 
-# class UserList(generics.ListAPIView):
-#     queryset = User.objects.all()
-#     print("---[", queryset, "]---")
-#     # serializer_class = UserSerializer
+class UserList(generics.ListAPIView):
+    queryset = User.objects.all()
+    print("queryset: ", queryset)
+    serializer_class = UserSerializer
 
-# class UserDetail(generics.RetrieveAPIView):
-#     queryset = User.objects.all()
-#     serializer_class = UserSerializer
-
-
+class UserDetail(generics.RetrieveAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
 
 
-class CurrentUserView(APIView):
-    def get(self, request):
-        serializer = UserSerializer(request.user)
-        return Response(serializer.data)
+
+
+
+# class CurrentUserView(APIView):
+#     def get(self, request):
+#         serializer = UserSerializer(request.user)
+#         return Response(serializer.data)
     
+
 
 
 

@@ -1,8 +1,9 @@
-import Logout from "./Logout.js";
-import { verifyToken } from "./VerfifyUser.js";
+import Logout from "../Components/Logout.js";
+import { verifyToken } from "../utils/VerfifyUser.js";
+
 export default class Game {
     constructor() {
-        
+        this.render();
     }
     async setUserData() {
         const token = localStorage.getItem("jwt-token");
@@ -15,8 +16,12 @@ export default class Game {
         .then(data => {
             return data;
         })
+        .catch(erro => {
+            throw new Error("hi there");
+        })
         return data
     }
+
     async render() {
         
         let verify = await verifyToken();
@@ -27,11 +32,12 @@ export default class Game {
             return;
         }
         let logout = new Logout();
-        const data = await this.setUserData();
+        // const data = await this.setUserData();
         const html = `
         ${logout.getHtml()}
-        <h1>Salam Alaikoum ana ${data.username}</h1>
+            <h1>Salam Alaikoum ana hwa ana</h1>
         `;
+
         document.querySelector("#app").innerHTML = html;
 
 

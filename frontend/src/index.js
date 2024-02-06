@@ -1,5 +1,5 @@
 
-import { routes } from "./Components/Routes.js"
+import { routes } from "./Routes.js"
 // // // const pathToRegex = path => new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
 
 
@@ -21,7 +21,7 @@ const router = async() => {
     }
     
     const component = new match.route.component();
-    component.render();
+    // component.render();
 }
 
 window.addEventListener("popstate", router);
