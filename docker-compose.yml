@@ -13,6 +13,7 @@ services:
       - "8000:8000"
     depends_on:
       - postgres
+    restart: on-failure
 
   frontend:
     container_name: frontend_container
@@ -25,15 +26,24 @@ services:
       - "3000:3000"
     depends_on:
       - backend
+    restart: on-failure
 
   postgres:
     container_name: postgres_container
-    image: postgres:alpine
+    image: postgres:16
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_DB: postgres
-      POSTGRES_PASSWORD: postgres
+        - "POSTGRES_HOST_AUTH_METHOD=trust"
     volumes:
       - ./requirements/postgres/data/db:/var/lib/postgresql/data
+
+  pgadmin:
+    container_name: pgadmin_container
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=user@domain.com
+      - PGADMIN_DEFAULT_PASSWORD=password
     ports:
-      - "5432:5432"
+      - "5050:80"
+    depends_on:
+      - postgres
+    restart: always

@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-v$&oz0^**-*tfoacz&fh6ck*$$uf00c4)32s6me2#m=p92(p8r
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0.0.0.0']
 
 APPEND_SLASH = False
 
@@ -87,14 +87,25 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'railway',        
+#         'USER':'postgres',
+#         'PASSWORD':'1FFFad*-d-eFC1eef3CB6Ff-dE3fADaf',
+#         'HOST':'monorail.proxy.rlwy.net',
+#         'PORT':'42279',
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',        
-        'USER':'postgres',
-        'PASSWORD':'1FFFad*-d-eFC1eef3CB6Ff-dE3fADaf',
-        'HOST':'monorail.proxy.rlwy.net',
-        'PORT':'42279',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "postgres",
+        "USER": "postgres",
+        "PASSWORD": "postgres",
+        "HOST": "postgres",  # set in docker-compose.yml
+        "PORT": 5432,  # default postgres port
     }
 }
 

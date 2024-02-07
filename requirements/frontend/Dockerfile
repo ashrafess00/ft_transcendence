@@ -1,6 +1,6 @@
 FROM php:7.4-cli
 
-WORKDIR /app/src
+WORKDIR /app/src/src
 
 EXPOSE 3000
 
