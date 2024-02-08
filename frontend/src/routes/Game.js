@@ -1,38 +1,19 @@
 import Logout from "../Components/Logout.js";
 import { verifyToken } from "../utils/VerfifyUser.js";
 
-
 export default class Game {
     constructor() {
         this.render();
     }
-
-    getSpinner() {
-        return `
-            <div class="spinner-border text-primary" role="status">
-                <span class="sr-only"></span>
-            </div>
-        `
-    }
-
-    async getUserData() {
-        const userData = localStorage.getItem("user-data");
-        if (userData)
-            return JSON.parse(userData);
-
+    async setUserData() {
         const token = localStorage.getItem("jwt-token");
-        let data = await fetch("http://localhost:8000/api/current-user/" , {
+        let data = await fetch("http://0.0.0.0:8000/api/current-user" , {
             headers: {
                 Authorization: ('Bearer ' + token),
             }
         })
-        .then(res => {
-            if (!res.ok)
-                throw new Error("error to get current user");
-            return res.json();
-        })
+        .then(res => res.json())
         .then(data => {
-            localStorage.setItem("user-data", JSON.stringify(data));
             return data;
         })
         .catch(erro => {
@@ -44,19 +25,17 @@ export default class Game {
     async render() {
         
         let verify = await verifyToken();
+
+        console.log("v: ", verify);
         if (!verify) {
             window.location.href = "/login";
             return;
         }
         let logout = new Logout();
-        const data = await this.getUserData();
-        console.log(data);
-
-
+        // const data = await this.setUserData();
         const html = `
         ${logout.getHtml()}
-            <h1>Salam Alaikoum ana hwa ${data.username}</h1>
-            <h6>hnaya fin ghadi nl3bo</h6>
+            <h1>Salam Alaikoum ana hwa ana</h1>
         `;
 
         document.querySelector("#app").innerHTML = html;

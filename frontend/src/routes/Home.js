@@ -3,11 +3,6 @@ export default class Home {
         this.render();
     }
 
-    async getData() {
-        let data = await fetch("http://localhost:8000/api/data-list").then(res => res.json()).then(data => data)
-        return  data
-    }
-
     async render() {
         const html =  `
         <div class="container text-center align-middle mt-auto position-absolute top-50 start-50 translate-middle">

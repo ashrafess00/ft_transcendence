@@ -22,7 +22,7 @@ export const routes = [
         component: Game
     },
     {
-        path: "/profile",
+        path:"/profile",
         component: Profile
     }
 ]
