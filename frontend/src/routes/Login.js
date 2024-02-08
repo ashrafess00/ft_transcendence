@@ -5,12 +5,10 @@ import BackToHome from "../Components/BackToHome.js"
 export default class Login {
     constructor() {
         this.url = "http://localhost:8000/api/token/"
-        this.userNameVal = "";
-        this.passwordVal = "";
         this.mssg = "";
         this.obj = "hi";
         this.notAuthenticated = false;
-
+        localStorage.clear();
         this.render();
     }
 
@@ -56,7 +54,6 @@ export default class Login {
         `
     }
 
-
     
     async render() {
         let backToHomeCom = new BackToHome()
@@ -76,9 +73,9 @@ export default class Login {
         const form = document.getElementById("login");
         form.addEventListener("submit", e => {
             e.preventDefault();
-            let userName = document.getElementById("username").value;
-            let userPass = document.getElementById("password").value;
-            let loginContainer = document.getElementById("login-container");
+            const userName = document.getElementById("username").value;
+            const userPass = document.getElementById("password").value;
+            const loginContainer = document.getElementById("login-container");
             loginContainer.innerHTML = this.getSpinner();
 
             fetch(this.url, {
@@ -97,7 +94,6 @@ export default class Login {
                     this.passwordVal = userPass;
                     this.notAuthenticated = true;
                     this.render();
-                    console.log("error");
                     throw new Error("waalo");
                 }
                 return res.json()

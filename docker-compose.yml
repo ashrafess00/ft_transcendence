@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+
+  backend:
+    container_name: backend_container
+    build:
+      context: ./requirements/backend
+      dockerfile: Dockerfile
+    volumes:
+      - ./requirements/backend/src:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+
+  frontend:
+    container_name: frontend_container
+    build:
+      context: ./requirements/frontend
+      dockerfile: Dockerfile
+    volumes:
+      - ./requirements/frontend/src:/app/src
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+  postgres:
+    container_name: postgres_container
+    image: postgres:alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - ./requirements/postgres/data/db:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"

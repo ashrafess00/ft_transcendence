@@ -20,12 +20,6 @@ from django.conf import settings
 from django.conf.urls.static import static
 from playerauth.views import UserRegistrationViewSet
 
-from rest_framework_simplejwt.views import (
-    TokenObtainPairView,
-    TokenRefreshView,
-    TokenVerifyView,
-)
-
 from rest_framework_simplejwt.views import TokenObtainPairView
 
 urlpatterns = [

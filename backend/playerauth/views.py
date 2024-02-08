@@ -21,22 +21,41 @@ class DataList(generics.ListCreateAPIView):
     serializer_class = PlayerDataSerializer
     permission_classes = [IsAuthenticatedOrReadOnly]
 
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
+
 
 
 class DataDetail(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = [IsAuthenticated]
     queryset = PlayerData.objects.all()
     serializer_class = PlayerDataSerializer
 
 
 
-class UserList(generics.ListAPIView):
+class UserList(generics.ListCreateAPIView):
     queryset = User.objects.all()
-    print("queryset: ", queryset)
     serializer_class = UserSerializer
 
-class UserDetail(generics.RetrieveAPIView):
+class UserDetail(generics.RetrieveDestroyAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+
+
+
+class CurrentUser(APIView):
+    # permission_classes = [IsAuthenticated]
+
+    def get(self, request, format=None):
+        serializer = UserSerializer(request.user)
+        return Response(serializer.data)
+
+
+
+
+# def currentUser(request):
+#     print("hello i am ", request.user)
+#     return "hi"
 
 
 
