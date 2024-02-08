@@ -6,7 +6,7 @@ export default class Game {
     }
     async setUserData() {
         const token = localStorage.getItem("jwt-token");
-        let data = await fetch("http://localhost:8000/api/current-user" , {
+        let data = await fetch("http://0.0.0.0:8000/api/current-user" , {
             headers: {
                 Authorization: ('Bearer ' + token),
             }

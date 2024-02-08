@@ -4,7 +4,7 @@ export default class Home {
     }
 
     async getData() {
-        let data = await fetch("http://localhost:8000/api/data-list").then(res => res.json()).then(data => data)
+        let data = await fetch("http://0.0.0.0:8000/api/data-list").then(res => res.json()).then(data => data)
         return  data
     }
 

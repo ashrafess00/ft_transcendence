@@ -2,7 +2,7 @@ import BackToHome from "./BackToHome.js";
 
 export default class Register {
     constructor() {
-        this.url = "http://localhost:8000/api/register/";
+        this.url = "http://0.0.0.0:8000/api/register/";
         this.username = "";
         this.email = "";
         this.password = "";
@@ -22,7 +22,7 @@ export default class Register {
                 </div>
                 <div class="col-lg-6 d-flex">
                     <div class="vr d-none d-lg-block"></div>
-                    <form class="container-fluid" action="http://localhost:8000/api/register" method="POST" id="register">
+                    <form class="container-fluid" action="http://0.0.0.0:8000/api/register" method="POST" id="register">
                         <div class="mb-3">
                             <label for="username" class="form-label">Username</label>
                             <input type="text" class="form-control" id="username" name="username" required>
