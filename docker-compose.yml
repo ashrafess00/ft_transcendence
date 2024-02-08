@@ -1,0 +1,48 @@
+version: '3'
+
+services:
+  backend:
+    container_name: backend_container
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    volumes:
+      - ./backend/src:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+    restart: on-failure
+
+  frontend:
+    container_name: frontend_container
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    volumes:
+      - ./frontend/src:/app/src
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    restart: on-failure
+
+  postgres:
+    container_name: postgres_container
+    image: postgres:16
+    environment:
+        - "POSTGRES_HOST_AUTH_METHOD=trust"
+    volumes:
+      - ./postgres/data/db:/var/lib/postgresql/data
+
+  pgadmin:
+    container_name: pgadmin_container
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=user@domain.com
+      - PGADMIN_DEFAULT_PASSWORD= 
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
+    restart: always

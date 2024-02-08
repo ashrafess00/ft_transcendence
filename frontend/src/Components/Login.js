@@ -2,7 +2,7 @@ import BackToHome from "./BackToHome.js"
 
 export default class Login {
     constructor() {
-        this.url = "http://localhost:8000/api/token/"
+        this.url = "http://0.0.0.0:8000/api/token/"
         this.userNameVal = "";
         this.passwordVal = "";
         this.mssg = "";
@@ -19,7 +19,7 @@ export default class Login {
                 <div class="col-lg-6 d-flex">
                     <div class="vr d-none d-lg-block"></div>
                     <div class="container-fluid">
-                        <form class="mb-4" action="http://localhost:8000/api/register" method="POST" id="login">
+                        <form class="mb-4" action="http://0.0.0.0:8000/api/register" method="POST" id="login">
                         <div class="mb-3">
                             <label for="userName" class="form-label">userName</label>
                             <input type="text" class="form-control" id="username" name="username" value="${this.userNameVal}">

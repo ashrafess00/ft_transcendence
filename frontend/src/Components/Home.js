@@ -1,10 +1,10 @@
 export default class Home {
     constructor() {
-        
+        this.render();
     }
 
     async getData() {
-        let data = await fetch("http://localhost:8000/api/data-list").then(res => res.json()).then(data => data)
+        let data = await fetch("http://0.0.0.0:8000/api/data-list").then(res => res.json()).then(data => data)
         return  data
     }
 
@@ -15,6 +15,7 @@ export default class Home {
             <a href="/login" id="login-btn" class="btn btn-primary px-3 text-decoration-none text-white" data-link>Log In</a>
         </div>
     `;
+    
     document.querySelector("#app").innerHTML = html;
     }
 }
