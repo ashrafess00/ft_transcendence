@@ -5,10 +5,10 @@ services:
   backend:
     container_name: backend_container
     build:
-      context: ./requirements/backend
+      context: ./backend
       dockerfile: Dockerfile
     volumes:
-      - ./requirements/backend/src:/app
+      - ./backend/src:/app
     ports:
       - "8000:8000"
     depends_on:
@@ -18,10 +18,10 @@ services:
   frontend:
     container_name: frontend_container
     build:
-      context: ./requirements/frontend
+      context: ./frontend
       dockerfile: Dockerfile
     volumes:
-      - ./requirements/frontend/src:/app/src
+      - ./frontend/src:/app/src
     ports:
       - "3000:3000"
     depends_on:
@@ -34,7 +34,7 @@ services:
     environment:
         - "POSTGRES_HOST_AUTH_METHOD=trust"
     volumes:
-      - ./requirements/postgres/data/db:/var/lib/postgresql/data
+      - ./postgres/data/db:/var/lib/postgresql/data
 
   pgadmin:
     container_name: pgadmin_container
