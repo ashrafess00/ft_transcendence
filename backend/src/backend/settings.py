@@ -30,6 +30,13 @@ ALLOWED_HOSTS = ['0.0.0.0']
 
 APPEND_SLASH = False
 
+ASGI_APPLICATION = 'backend.routing.application'
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels.layers.InMemoryChannelLayer'
+    }
+}
+
 # Application definition
 INSTALLED_APPS = [
 
@@ -40,6 +47,7 @@ INSTALLED_APPS = [
     'snippets',
     'corsheaders',
     'rest_framework_simplejwt',
+    'chat',
 
 
 
@@ -50,6 +58,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'channels',
 ]
 
 MIDDLEWARE = [

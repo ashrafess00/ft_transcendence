@@ -13,4 +13,5 @@ rest-framework-simplejwt==0.0.2
 sqlparse==0.4.4
 typing-extensions==4.9.0
 virtualenv==20.25.0
+channels==3.0.4
 

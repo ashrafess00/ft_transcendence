@@ -19,6 +19,8 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from playerauth.views import UserRegistrationViewSet
+from django.urls import path
+from chat.views import chat_box
 
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
@@ -32,5 +34,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('playerauth.urls')),
     path('api-auth/', include('rest_framework.urls')),
-    path('api/register/', UserRegistrationViewSet.as_view({'post': 'create'}), name='register')
+    path('api/register/', UserRegistrationViewSet.as_view({'post': 'create'}), name='register'),
+    path("chat/<str:chat_box_name>/", chat_box, name="chat"),
 ]
