@@ -18,8 +18,8 @@ export default class Register {
         ${backToHomeCom.getHtml()}
         <div class="container position-absolute top-50 start-50 translate-middle">
             <div class="row">
-                <div class="col-lg-6 align-self-center mb-5">
-                    <h1>Register here a bb</h1>
+                <div class="col-lg-6 align-self-center mb-5 text-center">
+                    <h1>Register</h1>
                 </div>
                 <div class="col-lg-6 d-flex">
                     <div class="vr d-none d-lg-block"></div>

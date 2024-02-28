@@ -37,6 +37,7 @@ export default class Profile {
         
         this.choice = 1;
         this.active = 1;
+        this.mouseSpeedVal = 0;
         this.render();
     }
 
@@ -65,20 +66,20 @@ export default class Profile {
 
     getGameSettings() {
         return `
-            <div class="col-6">
+            <div class="col-md-6 w-md-25">
                 <p class="">mouse speed</p>
-                <input type="range" min="0" max="10" class="mb-5 form-range w-25" id="mouse-speed"/>
+                <input type="range" min="0" max="10" class="mb-5 form-range" id="mouse-speed" value="${this.mouseSpeedVal}"/>
 
 
                 <p class="">l colour dyal racketa</p>
-                <div class="d-flex justify-content-between w-25 mb-5">
+                <div class="d-flex justify-content-between mb-5">
                     ${this.racketColoursId.map((racketColorId)=> {
                         return `<div class="rounded-circle ${racketColorId.selected ? "border border-white" : ""}" style="${racketColorId.style}" id=${racketColorId.id}></div>`
                     }).join('')}
                 </div>
 
                 <p class="">l colour dyal l ball</p>
-                <div class="d-flex justify-content-between w-25">
+                <div class="d-flex justify-content-between">
                     ${this.ballColorsId.map((ballColorId)=> {
                         return `<div class="rounded-circle ${ballColorId.selected ? "border border-white" : ""}" style="${ballColorId.style}" id=${ballColorId.id}></div>`
                     }).join('')}
@@ -88,7 +89,7 @@ export default class Profile {
     }
 
     render() {
-        this.html = `<div class="row mt-5 ">
+        this.html = `<div class="row mt-5 justify-content-between">
             <div class="col-md-4 mb-5">
                 <ul class="list-group mt-4" style="cursor: pointer">
                     <li class="list-group-item ${this.active ? "active" : ""}" id="change-profile">Change Profile</li>

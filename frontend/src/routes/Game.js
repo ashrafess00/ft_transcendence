@@ -5,9 +5,12 @@ export default class Game {
     constructor() {
         this.render();
     }
-    async setUserData() {
+    async getUserData() {
         const token = localStorage.getItem("jwt-token");
-        let data = await fetch("http://0.0.0.0:8000/api/current-user" , {
+        const userData = localStorage.getItem("user-data");
+        
+        console.log("token: ", token);
+        let data = await fetch("http://localhost:8000/api/current-user/" , {
             headers: {
                 Authorization: ('Bearer ' + token),
             }
@@ -32,10 +35,10 @@ export default class Game {
             return;
         }
         let logout = new Logout();
-        // const data = await this.setUserData();
+        const data = await this.getUserData();
         const html = `
-        ${logout.getHtml()}
-            <h1>Salam Alaikoum ana hwa ana</h1>
+            ${logout.getHtml()}
+            <h1>Hello i am ${data.username}</h1>
         `;
 
         document.querySelector("#app").innerHTML = html;

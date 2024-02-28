@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib import admin
 from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.models import User
 
@@ -11,8 +12,15 @@ class PlayerData(models.Model):
     def __str__(self):
         return self.firstName
     
+class PlayDataAdmin(admin.ModelAdmin):
+    list_display = [ "owner", 'firstName', "lastName" ]
+    
 
 class User(models.Model):
     username = models.CharField(max_length=50)
     email = models.EmailField(unique=True)
     password = models.CharField(max_length=50)
+
+class UserAdmin(admin.ModelAdmin):
+    list_display = [ "username", 'email', "password" ]
+    

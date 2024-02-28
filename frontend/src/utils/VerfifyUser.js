@@ -1,9 +1,10 @@
 export async function verifyToken() {
     const token = localStorage.getItem("jwt-token");
+
     const refreshToken = localStorage.getItem("jwt-token-refresh");
     if (token) {
         //verify if the is valid
-        return fetch("http://0.0.0.0:8000/api/token/verify/", {
+        return fetch("http://localhost:8000/api/token/verify/", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -24,7 +25,7 @@ export async function verifyToken() {
         .catch(error => {
             console.log("error");
             if (refreshToken) {
-                return fetch("http://0.0.0.0:8000/api/token/refresh/", {
+                return fetch("http://localhost:8000/api/token/refresh/", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",

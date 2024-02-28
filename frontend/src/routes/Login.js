@@ -61,8 +61,8 @@ export default class Login {
         ${backToHomeCom.getHtml()}
         <div class="container position-absolute top-50 start-50 translate-middle">
             <div class="row">
-                <div class="col-lg-6 align-self-center mb-5">
-                    <h1>Login here a bb</h1>
+                <div class="col-lg-6 align-self-center mb-5 text-center">
+                    <h1>Login</h1>
                 </div>
                 ${this.getLoginInterface()}
             </div>
