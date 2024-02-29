@@ -1,7 +1,7 @@
 import Login from "./routes/Login.js";
 import Home from "./routes/Home.js";
 import Register from "./routes/Register.js";
-import Game from "./routes/Game.js";
+// import Game from "./routes/Game.js";
 import Profile from "./routes/Profile.js";
 
 export const routes = [
@@ -19,7 +19,7 @@ export const routes = [
     },
     {
         path:"/game",
-        component: Game
+        // component: Game
     },
     {
         path: "/profile",

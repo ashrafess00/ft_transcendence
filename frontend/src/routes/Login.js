@@ -1,4 +1,4 @@
-import BackToHome from "../Components/BackToHome.js"
+import BackToHome from "../components/BackToHome.js"
 
 
 

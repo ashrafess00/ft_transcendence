@@ -21,11 +21,7 @@ export default class Game {
             return JSON.parse(userData);
 
         const token = localStorage.getItem("jwt-token");
-<<<<<<< HEAD:frontend/src/routes/Game.js
-        let data = await fetch("http://localhost:8000/api/current-user/" , {
-=======
         let data = await fetch("http://0.0.0.0:8000/api/current-user" , {
->>>>>>> to-doffa:frontend/src/src/Components/Game.js
             headers: {
                 Authorization: ('Bearer ' + token),
             }
