@@ -3,17 +3,22 @@
 import Register from "./routes/Register.js";
 // import Game from "./routes/Game.js";
 import Profile from "./routes/Profile.js";
+import Login from "./routes/login/Login.js"
+import Home from "./routes/home/Home.js/index.js"
+import Game from "./routes/game/game.js";
 
 export const routes = [
     {
         path:"/",
-        component: "./routes/home/home.html",
-        js: "./routes/home/home.js",
+        htmlPath: "./routes/home/home.html",
+        js: "./routes/home/homeJs.js",
+        component: Home,
     },
     {
         path:"/login",
-        component: "./routes/login/login.html",
-        js: "./routes/login/login.js",
+        htmlPath: "./routes/login/login.html",
+        js: "./routes/login/loginJs.js",
+        component: Login,
     },
     {
         path:"/register",
@@ -22,7 +27,9 @@ export const routes = [
     },
     {
         path:"/game",
-        // component: Game
+        htmlPath: "./routes/game/game.html",
+        js: "./routes/game/gameJs.js",
+        component: Game,
     },
     {
         path:"/profile",
