@@ -4,7 +4,6 @@ class Login {
     }
 
     
-
     async render() {
         return fetch(this.path)
         .then(res => {

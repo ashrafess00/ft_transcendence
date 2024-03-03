@@ -1,3 +1,6 @@
+import { insertIntoElement } from "../../utils/utils.js";
+
+
 const url = "http://localhost:8000/api/token/";
 const form = document.getElementById("login");
 
@@ -10,11 +13,11 @@ form.addEventListener("submit", (e) => {
 
     if (!userName  || !userPass)
     {
-        console.log('e: u ', userName, "e: p: ", userPass);
-        if (fields_warning)
-            fields_warning.innerText = "fields shouldn't be empty"
+        insertIntoElement('fields-warning', "fields shouldn't be empty");
         return;
     }
+
+    insertIntoElement('login', 'login ...');
 
     fetch(url, {
         method: "POST",

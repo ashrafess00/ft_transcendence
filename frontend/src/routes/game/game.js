@@ -6,7 +6,6 @@ class Game {
     }
 
     async render() {
-
         try {
             await verifyToken();
             return fetch(this.path)
