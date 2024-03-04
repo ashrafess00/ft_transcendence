@@ -1,46 +1,47 @@
 
-import { routes } from "./src/Routes.js"
+// import { routes } from "./src/Routes.js";
+import { navigateTo, router } from "./src/utils/navTo.js";
 // // // const pathToRegex = path => new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
 
 
-const router = async () => {
+// const router = async () => {
     
-    const potentialMatches = routes.map(route => {
-        return {
-            route,
-            isMatch: location.pathname === route.path
-        }
-    })
+//     const potentialMatches = routes.map(route => {
+//         return {
+//             route,
+//             isMatch: location.pathname === route.path
+//         }
+//     })
 
-    let match = potentialMatches.find(potentialMatch => potentialMatch.isMatch)
-    if (!match) {
-        match = {
-            route: routes[0],
-            isMatch: true
-        }
-    }
+//     let match = potentialMatches.find(potentialMatch => potentialMatch.isMatch)
+//     if (!match) {
+//         match = {
+//             route: routes[0],
+//             isMatch: true
+//         }
+//     }
     
 
-    const root = document.getElementById('root');
-    const component = new match.route.component(match.route.htmlPath);
+//     const root = document.getElementById('root');
+//     const component = new match.route.component(match.route.htmlPath);
 
-    try {
-        const html = await component.render();
-        root.innerHTML = html;
-        import(match.route.js);
-    }
-    catch(err) {
-        console.log("there is an error");
-    }
-}
+//     try {
+//         const html = await component.render();
+//         root.innerHTML = html;
+//         import(match.route.js);
+//     }
+//     catch(err) {
+//         console.log("there is an error");
+//     }
+// }
 
 
 window.addEventListener("popstate", router);
 
-const navigateTo = (url) => {
-    history.pushState(null, null, url);
-    router();
-}
+// const navigateTo = (url) => {
+//     history.pushState(null, null, url);
+//     router();
+// }
 
 function generateFavIcon() {
     let links = ["public/images/aessaoud.ico",

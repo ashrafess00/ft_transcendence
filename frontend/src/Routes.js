@@ -8,25 +8,25 @@ export const routes = [
     {
         path:"/",
         htmlPath: "./src/routes/home/home.html",
-        js: "./src/routes/home/homeJs.js",
+        js: "/src/routes/home/homeJs.js",
         component: Home,
     },
     {
         path:"/login",
         htmlPath: "./src/routes/login/login.html",
-        js: "./src/routes/login/loginJs.js",
+        js: "/src/routes/home/homeJs.js",
         component: Login,
     },
     {
         path:"/register",
         htmlPath: "./src/routes/register/register.html",
-        js: "./src/routes/register/registerJs.js",
+        js: "/src/routes/register/registerJs.js",
         component: Register,
     },
     {
         path:"/game",
         htmlPath: "./src/routes/game/game.html",
-        js: "./src/routes/game/gameJs.js",
+        js: "/src/routes/game/gameJs.js",
         component: Game,
     },
     {

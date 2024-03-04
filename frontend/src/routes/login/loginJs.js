@@ -1,4 +1,5 @@
-import { insertIntoElement } from "../../utils/utils.js";
+import { navigateTo } from "../../utils/navTo.js";
+import { insertIntoElement, appendToElement, toggleHidden } from "../../utils/utils.js";
 
 
 const url = "http://localhost:8000/api/token/";
@@ -17,8 +18,11 @@ form.addEventListener("submit", (e) => {
         return;
     }
 
-    insertIntoElement('login', 'login ...');
-
+    // insertIntoElement('login', 'login ...');
+    // appendToElement('login', `<p>login ...</p>`);
+    toggleHidden('login');
+    toggleHidden('login-spinner');
+    
     fetch(url, {
         method: "POST",
         headers: {
@@ -39,7 +43,13 @@ form.addEventListener("submit", (e) => {
     .then(token => {
         localStorage.setItem("jwt-token", token.access);
         localStorage.setItem("jwt-token-refresh", token.refresh);
-        window.location.href = "/game";
+        // window.location.href = "/game";
+        navigateTo("/game");
+    })
+    .catch((err) => {
+        toggleHidden('login');
+        toggleHidden('login-spinner');
+
     })
     
 })
