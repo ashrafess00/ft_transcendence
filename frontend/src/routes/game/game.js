@@ -8,6 +8,8 @@ class Game {
     async render() {
         try {
             await verifyToken();
+            
+            console.log('hi there game');
             return fetch(this.path)
             .then(res => {
                 if (!res.ok)

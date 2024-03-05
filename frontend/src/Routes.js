@@ -14,7 +14,7 @@ export const routes = [
     {
         path:"/login",
         htmlPath: "./src/routes/login/login.html",
-        js: "/src/routes/home/homeJs.js",
+        js: "/src/routes/login/loginJs.js",
         component: Login,
     },
     {

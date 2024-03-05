@@ -1,12 +1,14 @@
 const verifyUrl = "http://localhost:8000/api/token/verify/";
+const refreshToken = "http://localhost:8000/api/token/refresh/";
 
 
 export async function verifyToken() {
     const token = localStorage.getItem("jwt-token");
     const refreshToken = localStorage.getItem("jwt-token-refresh");
 
+
     if (token){
-        const res = await fetch(verifyUrl, {
+        const accessTokenRes = await fetch(verifyUrl, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -15,8 +17,9 @@ export async function verifyToken() {
                 token: token,
             })
         });
-        if (!res.ok)
+        if (!accessTokenRes.ok) {
             throw new Error(`Error: status ${res.status}`);
+        }
     }
     
     else {

@@ -6,6 +6,7 @@ const url = "http://localhost:8000/api/token/";
 const form = document.getElementById("login");
 
 form.addEventListener("submit", (e) => {
+
     e.preventDefault();
     const userName = document.getElementById("username").value;
     const userPass = document.getElementById("password").value;
@@ -18,8 +19,6 @@ form.addEventListener("submit", (e) => {
         return;
     }
 
-    // insertIntoElement('login', 'login ...');
-    // appendToElement('login', `<p>login ...</p>`);
     toggleHidden('login');
     toggleHidden('login-spinner');
     
